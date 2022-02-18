@@ -1,5 +1,5 @@
 :root {
-	--theme:dark;
+	--theme: dark;
 	--background-1: #1c1a1e;
 	--background-2: #221f23;
 	--foreground: #f7fff7;
@@ -12,29 +12,74 @@ html{
 	color: var(--foreground);
 	letter-spacing: 0.1rem;
 	font-weight: 500;
+	transition: .15s ease;
 }
 
 #container{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	display: grid;
 	min-height: var(--viewport-height);
-	z-index: 2;
 	padding: 1rem;
 	padding-bottom: 2rem;
+	
+	grid-template-columns: 100%;
+	grid-template-areas:
+	"sidebar1"
+	"main"
+	"themeswitch"
+	;
+}
+
+@media (min-width: 650px) {
+	#container{
+		display: grid;
+		grid-template-columns: 15% 70%;
+		grid-template-areas:
+		"blank sidebar1"
+		"blank main"
+		"blank themeswitch"
+		;
+	}
+}
+
+@media (min-width: 1000px) {
+	#container{
+		display: grid;
+		grid-template-columns: 25% 50%;
+		grid-template-areas:
+		"sidebar1 main"
+		"blank themeswitch"
+		;
+	}
 }
 
 #main{
+	grid-area: main;
 	background-color: var(--background-2);
 	display: flex;
-	max-width: 100%;
-	z-index: 1;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 	border-radius: .75rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 	border: .1rem solid var(--foreground)
+}
+
+
+#navbox{
+	grid-area: sidebar1;
+	background-color: var(--background-2);
+	max-width: 100%;
+	border-radius: .75rem;
+	border: .1rem solid var(--foreground)
+}
+
+@media (min-width: 1000px) {
+	#navbox{
+		max-width: 60%;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
 }
 
 #inner{
@@ -44,7 +89,7 @@ html{
 }
 
 .banner{
-	width: 100%;
+	max-width: 100%;
 	border-radius: .75rem
 }
 
@@ -59,9 +104,7 @@ hr{
 
 .list-button{
 	display: inline-block;
-	max-width: 100%;
 	width: 100%;
-	margin: auto;
 }
 
 .button-href{
@@ -72,6 +115,7 @@ hr{
 	background: var(--button);
 	padding: .75rem;
 	padding-left: 2rem;
+	padding-right: 2rem;
 	border-radius: .75rem;
 	font-size: 20px;
 	cursor: pointer;
@@ -86,16 +130,14 @@ hr{
 }
 
 .button-logo{
-	width: 32px;
-	height: 32px;
+	width: 2rem;
+	display: block;
 	float: right;
-	vertical-align: center;
-	padding-right: 2rem;
 }
 
 .themeswitch{
+	grid-area: themeswitch;
 	cursor: pointer;
-	padding-top: 2rem;
-	width: 24px;
-	height: 24px;
+	width: 2rem;
+	margin: auto;
 }

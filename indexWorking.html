@@ -8,13 +8,14 @@
 		<meta property="og:title" content="the fernsite!">
 		<meta property="og:site_name" content="the fernsite!">
 		<meta property="og:type" content="website">
+		<link rel="stylesheet" href="style.css">
 		<style>
 			:root {
-				--theme:dark;
-				--background-1: #1c1a1e;
-				--background-2: #221f23;
-				--foreground: #f7fff7;
-				--button: #38B863;
+			--theme: dark;
+			--background-1: #1c1a1e;
+			--background-2: #221f23;
+			--foreground: #f7fff7;
+			--button: #38B863;
 			}
 
 			html{
@@ -23,35 +24,74 @@
 				color: var(--foreground);
 				letter-spacing: 0.1rem;
 				font-weight: 500;
+				transition: .15s ease;
 			}
 
 			#container{
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
+				display: grid;
 				min-height: var(--viewport-height);
-				z-index: 2;
 				padding: 1rem;
 				padding-bottom: 2rem;
+
+				grid-template-columns: 100%;
+				grid-template-areas:
+				"sidebar1"
+				"main"
+				"themeswitch"
+				;
+			}
+
+			@media (min-width: 650px) {
+				#container{
+					display: grid;
+					grid-template-columns: 15% 70%;
+					grid-template-areas:
+					"blank sidebar1"
+					"blank main"
+					"blank themeswitch"
+					;
+				}
+			}
+
+			@media (min-width: 1000px) {
+				#container{
+					display: grid;
+					grid-template-columns: 25% 50%;
+					grid-template-areas:
+					"sidebar1 main"
+					"blank themeswitch"
+					;
+				}
 			}
 
 			#main{
+				grid-area: main;
 				background-color: var(--background-2);
 				display: flex;
-				max-width: 100%;
-				z-index: 1;
 				align-items: center;
 				justify-content: center;
 				text-align: center;
 				border-radius: .75rem;
+				margin-top: 1rem;
+				margin-bottom: 1rem;
 				border: .1rem solid var(--foreground)
 			}
 
-			nav{
-				display: flex;
-				max-width: 25%;
-				align-items: left;
+
+			#navbox{
+				grid-area: sidebar1;
+				background-color: var(--background-2);
+				max-width: 100%;
+				border-radius: .75rem;
+				border: .1rem solid var(--foreground)
+			}
+
+			@media (min-width: 1000px) {
+				#navbox{
+					max-width: 60%;
+					margin-top: 1rem;
+					margin-bottom: 1rem;
+				}
 			}
 
 			#inner{
@@ -61,7 +101,7 @@
 			}
 
 			.banner{
-				width: 100%;
+				max-width: 100%;
 				border-radius: .75rem
 			}
 
@@ -76,9 +116,7 @@
 
 			.list-button{
 				display: inline-block;
-				max-width: 100%;
 				width: 100%;
-				margin: auto;
 			}
 
 			.button-href{
@@ -89,6 +127,7 @@
 				background: var(--button);
 				padding: .75rem;
 				padding-left: 2rem;
+				padding-right: 2rem;
 				border-radius: .75rem;
 				font-size: 20px;
 				cursor: pointer;
@@ -103,18 +142,16 @@
 			}
 
 			.button-logo{
-				width: 32px;
-				height: 32px;
+				width: 2rem;
+				display: block;
 				float: right;
-				vertical-align: center;
-				padding-right: 2rem;
 			}
 
 			.themeswitch{
+				grid-area: themeswitch;
 				cursor: pointer;
-				padding-top: 2rem;
-				width: 24px;
-				height: 24px;
+				width: 2rem;
+				margin: auto;
 			}
 		</style>
 		<script>
@@ -149,7 +186,7 @@
 	</head>
 	<body>
 		<div id="container">
-			<nav style="flex:50%;float:left">
+			<nav id="navbox">
 				<ul>
 					<li><a href="#socials">Socials</a></li>
 					<li><a href="#aboutme">About Me</a></li>
@@ -201,16 +238,21 @@
 								</svg>
 								<span class="label">Twitch</span></a>
 						</div>
-					</ul>
+					</div>
 					<hr id="seperatorbottom">
 					<div id="footer">
 						<p id="footertext">&copy; Copyright 2022 Fern</p>
+						<div id="bucket-webring">
+							<span id="left">⥼ <a href="https://webring.bucketfish.me/redirect.html?to=prev&name=Fern" id="prev">prev</a></span>
+							<span id="mid"> 🏳️‍🌈 <a href="https://webring.bucketfish.me" id="header">bucket webring</a> 🏳️‍🌈 </span>
+							<span id="right"><a href="https://webring.bucketfish.me/redirect.html?to=next&name=Fern" id="next">next</a> ⥽</span>
+						</div>
 					</div>
 				</div>
 			</div>
+			<svg viewBox="0 0 100 100" class="themeswitch" onclick="switchtheme()">
+				<path class="svg" d="M0,50A50,50,0,1,0,50,0,50.0567,50.0567,0,0,0,0,50ZM50,8.8261V91.1739A41.1739,41.1739,0,0,1,50,8.8261Z" fill="#f7fff7"/>
+			</svg>
 		</div>
-		<svg viewBox="0 0 100 100" class="themeswitch" onclick="switchtheme()">
-			<path class="svg" d="M0,50A50,50,0,1,0,50,0,50.0567,50.0567,0,0,0,0,50ZM50,8.8261V91.1739A41.1739,41.1739,0,0,1,50,8.8261Z" fill="#f7fff7"/>
-		</svg>
 	</body>
 </html>
