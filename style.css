@@ -75,7 +75,10 @@ html{
 	background-color: var(--background-2);
 	border-radius: .75rem;
 	border: .1rem solid var(--foreground);
-	line-height: 125%
+	line-height: 125%;
+	max-width: 100%;
+	width: 32rem;
+	justify-self: center;
 }
 
 @media (min-width: 1000px) {
@@ -84,6 +87,7 @@ html{
 		max-width: 60%;
 		margin-top: 1rem;
 		margin-bottom: 1rem;
+		justify-self: left;
 	}
 }
 
