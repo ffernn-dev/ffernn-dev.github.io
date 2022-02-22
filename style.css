@@ -206,6 +206,7 @@ hr{
 
 .inlineurl{
 	color: var(--secondary);
+	white-space: nowrap;
 }
 
 .url::before {
