@@ -1,10 +1,10 @@
 :root {
 	--theme:dark;
-	--background-1: #1c1a1e;
-	--background-2: #221f23;
-	--foreground: #f7fff7;
-	--button: #38B863;
-	--secondary: #EF476F;
+	--background-1: #191724;
+	--background-2: #1f1d2e;
+	--foreground: #e0def4;
+	--button: #31748f;
+	--secondary: #eb6f92;
 }
 
 html{
@@ -56,7 +56,7 @@ html{
 #main{
 	grid-area: main;
 	justify-self: center;
-	width: 32rem;
+	width: 40rem;
 	max-width: 100%;
 	background-color: var(--background-2);
 	display: flex;
@@ -135,7 +135,7 @@ html{
 	text-decoration: none;
 	text-align: center;
 	display: block;
-	color: var(--foreground);
+	color: #fff;
 	background: var(--button);
 	padding: .75rem;
 	border-radius: .75rem;
@@ -151,7 +151,8 @@ html{
 }
 
 .itchimage{
-	height: 7rem;
+	height: 6rem;
+	width: auto;
 	border-radius: .75rem;
 	margin-right: 1rem;
 	float: left
@@ -171,7 +172,7 @@ hr{
 	text-decoration: none;
 	display: block;
 	text-align: left;
-	color: var(--foreground);
+	color: #fff;
 	background: var(--button);
 	padding: .75rem;
 	padding-left: 2rem;
@@ -204,6 +205,7 @@ hr{
 
 .url {
 	text-decoration: none;
+	cursor: pointer;
 	color: var(--foreground);
 	position: relative;
 }
