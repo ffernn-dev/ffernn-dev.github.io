@@ -62,6 +62,7 @@ window.onload = function() {
 	if (getCookie("theme") == "light") {
 		switchtheme();
 	}
+	document.getElementById("age").innerHTML = ((Date.now() - 1180879200000)/ 1000 / 60 / 60 / 24 / 365 ).toFixed(4);
 	showpage()
 }
 
