@@ -1,4 +1,4 @@
-:root {
+:root{
 	--theme:dark;
 	--background-1: #191724;
 	--background-2: #1f1d2e;
@@ -30,7 +30,7 @@ html{
 	;
 }
 
-@media (min-width: 650px) {
+@media (min-width: 650px){
 	#container{
 		display: grid;
 		grid-template-columns: 15% 70%;
@@ -42,7 +42,7 @@ html{
 	}
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1000px){
 	#container{
 		display: grid;
 		grid-template-columns: 25% 50%;
@@ -81,7 +81,7 @@ html{
 	justify-self: center;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1000px){
 	#navbox{
 		width: 16rem;
 		max-width: 60%;
@@ -203,7 +203,7 @@ hr{
 	justify-self: center;
 }
 
-.url {
+.url{
 	text-decoration: none;
 	cursor: pointer;
 	color: var(--foreground);
@@ -215,7 +215,7 @@ hr{
 	white-space: nowrap;
 }
 
-.url::before {
+.url::before{
 	content: '';;
 	position: absolute;
 	width: 100%;
@@ -228,7 +228,7 @@ hr{
 	transition: transform .3s ease-in-out;
 }
 
-.url:hover::before {
+.url:hover::before{
 	transform-origin: left;
 	transform: scaleX(1);
 }
