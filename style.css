@@ -20,10 +20,6 @@
 	--foreground: #575279;
 }
 
-.js-required{
-	display: none;
-}
-
 :root{
 	font-family: "Ubuntu", sans-serif;
 	background-color: var(--background-1);
@@ -54,11 +50,11 @@ body{
 	border: .1rem solid var(--foreground);
 }
 
-#inner {
+#inner{
 	margin: 2rem;
 }
 
-#navbox{
+nav{
 	padding: 1rem;
 	width: fit-content;
 	background-color: var(--background-2);
@@ -67,13 +63,13 @@ body{
 	line-height: 125%;
 }
 
-#navbox>ul{
+nav>ul{
 	padding: 0;
 	margin: 0;
 	list-style-position: inside;
 }
 
-#settings {
+#settings{
 	display: flex;
 	justify-content: center;
 }
@@ -84,12 +80,12 @@ body{
 	border-radius: .75rem
 }
 
-#siteinfo{
+#site-info{
 	text-align: left;
 	line-height: 140%;
 }
 
-.itchbox{
+.itch-box{
 	background-color: var(--background-1);
 	display: block;
 	border-radius: 0.75rem;
@@ -117,7 +113,7 @@ body{
 	transform: scale(1.02);
 }
 
-.itchimage{
+.itch-image{
 	height: 6rem;
 	width: auto;
 	border-radius: .75rem;
@@ -176,7 +172,7 @@ hr{
 	position: relative;
 }
 
-.inlineurl{
+.inline-url{
 	color: var(--secondary);
 	white-space: nowrap;
 }
@@ -199,10 +195,14 @@ hr{
 	transform: scaleX(1);
 }
 
-.tab {
+.tab{
 	display: none;
 }
 
-[id^="tab"]:checked + .tab {
+[id^="tab"]:checked + .tab{
     display: block;
+}
+
+.js-required{
+	display: none;
 }
