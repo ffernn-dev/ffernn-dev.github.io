@@ -1,355 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Technopigs</title>
-		<meta charset="utf-8">
-		<meta name="description" content="hey hi! it's the website of fern!">
-		<meta property="og:description" content="hey hi! it's the website of fern!">
-		<meta property="og:title" content="Technopigs">
-		<meta property="og:site_name" content="the fernsite!">
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-WHEZ8M2SCK"></script>
-		<meta property="og:type" content="website">
-		<style>
-			:root {
-				--theme:dark;
-				--background-1: #1c1a1e;
-				--background-2: #221f23;
-				--foreground: #f7fff7;
-				--button: #38B863;
-				--secondary: #EF476F;
-			}
 
-			html{
-				font-family: "Ubuntu", sans-serif;
-				background-color: var(--background-1);
-				color: var(--foreground);
-				letter-spacing: 0.1rem;
-				font-weight: 500;
-				transition: .15s ease;
-			}
+<head>
+	<title>Technopigs</title>
+	<meta charset="utf-8">
+	<meta name="description" content="hey hi! it's the website of fern!">
+	<meta property="og:description" content="hey hi! it's the website of fern!">
+	<meta property="og:title" content="Technopigs">
+	<meta property="og:site_name" content="the fernsite!">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WHEZ8M2SCK"></script>
+	<meta property="og:type" content="website">
+	<style>
+		:root {
+			--theme: dark;
+			--background-1: #1c1a1e;
+			--background-2: #221f23;
+			--foreground: #f7fff7;
+			--button: #38B863;
+			--secondary: #EF476F;
+		}
 
-			#container{
-				display: grid;
-				min-height: var(--viewport-height);
-				padding: 1rem;
-				padding-bottom: 2rem;
+		html {
+			font-family: "Ubuntu", sans-serif;
+			background-color: var(--background-1);
+			color: var(--foreground);
+			letter-spacing: 0.1rem;
+			font-weight: 500;
+			transition: .15s ease;
+		}
 
-				grid-template-columns: 100%;
-				grid-template-areas:
+		#container {
+			display: grid;
+			padding: 1rem;
+			padding-bottom: 2rem;
+
+			grid-template-columns: 100%;
+			grid-template-areas:
 				"leftspacer"
 				"sidebar1"
 				"main"
-				"themeswitch"
-				;
-			}
+				"theme-switch"
+			;
+		}
 
-			@media (min-width: 650px) {
-				#container{
-					display: grid;
-					grid-template-columns: 15% 70%;
-					grid-template-areas:
+		@media (min-width: 650px) {
+			#container {
+				display: grid;
+				grid-template-columns: 15% 70%;
+				grid-template-areas:
 					"blank sidebar1"
 					"blank main"
-					"blank themeswitch"
-					;
-				}
+					"blank theme-switch"
+				;
 			}
+		}
 
-			@media (min-width: 1000px) {
-				#container{
-					display: grid;
-					grid-template-columns: 15% 50% 35%;
-					grid-template-areas:
-					"leftspacer main sidebar1" 
-					"leftspacer themeswitch blank"
-					;
-				}
+		@media (min-width: 1000px) {
+			#container {
+				display: grid;
+				grid-template-columns: 15% 50% 35%;
+				grid-template-areas:
+					"leftspacer main sidebar1"
+					"leftspacer theme-switch blank"
+				;
 			}
+		}
 
-			#main{
-				grid-area: main;
-				justify-self: center;
-				width: 34rem;
-				max-width: 100%;
-				background-color: var(--background-2);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				text-align: center;
-				border-radius: .75rem;
+		#main {
+			grid-area: main;
+			justify-self: center;
+			width: 34rem;
+			max-width: 100%;
+			background-color: var(--background-2);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			border-radius: .75rem;
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+			border: .1rem solid var(--foreground)
+		}
+
+		#leftspacer {
+			grid-area: leftspacer;
+			max-width: 100%;
+			width: 32rem;
+			justify-self: center;
+		}
+
+		#navbox {
+			grid-area: sidebar1;
+			background-color: var(--background-2);
+			border-radius: .75rem;
+			border: .1rem solid var(--foreground);
+			line-height: 125%;
+			max-width: 100%;
+			width: 32rem;
+			justify-self: center;
+		}
+
+		@media (min-width: 1000px) {
+			#navbox {
+				width: 32rem;
+				max-width: 60%;
 				margin-top: 1rem;
 				margin-bottom: 1rem;
-				border: .1rem solid var(--foreground)
+				justify-self: right;
 			}
+		}
 
-			#leftspacer{
-				grid-area: leftspacer;
-				max-width: 100%;
-				width: 32rem;
-				justify-self: center;
-			}
+		#inner {
+			padding: 2rem;
+		}
 
-			#navbox{
-				grid-area: sidebar1;
-				background-color: var(--background-2);
-				border-radius: .75rem;
-				border: .1rem solid var(--foreground);
-				line-height: 125%;
-				max-width: 100%;
-				width: 32rem;
-				justify-self: center;
-			}
+		#socials {
+			display: none;
+			list-style-type: none;
+		}
 
-			@media (min-width: 1000px) {
-				#navbox{
-					width: 32rem;
-					max-width: 60%;
-					margin-top: 1rem;
-					margin-bottom: 1rem;
-					justify-self: right;
+		.banner {
+			width: 100%;
+			height: 100%;
+			border-radius: .75rem
+		}
+
+		#home {
+			text-align: left;
+		}
+
+		#aboutme {
+			text-align: left;
+		}
+
+		#stuffimade {
+			text-align: left
+		}
+
+		#siteinfo {
+			line-height: 140%;
+		}
+
+		.itchbox {
+			background-color: var(--background-1);
+			display: block;
+			border-radius: 0.75rem;
+			padding: 0.5rem;
+			margin-top: 0.5rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.itchbutton {
+			text-decoration: none;
+			text-align: center;
+			display: block;
+			color: var(--foreground);
+			background: var(--button);
+			padding: .75rem;
+			border-radius: .75rem;
+			cursor: pointer;
+			transition: .25s ease;
+			margin: 0;
+		}
+
+		.itchbutton:hover {
+			-webkit-filter: brightness(120%);
+			filter: brightness(120%);
+			transform: scale(1.02);
+		}
+
+		.itchimage {
+			height: 7rem;
+			width: auto;
+			border-radius: .75rem;
+			margin-right: 1rem;
+			float: left
+		}
+
+		hr {
+			border: .1rem solid var(--foreground);
+			background: var(--foreground)
+		}
+
+		.list-button {
+			display: inline-block;
+			width: 100%;
+		}
+
+		.button-href {
+			text-decoration: none;
+			display: block;
+			text-align: left;
+			color: var(--foreground);
+			background: var(--button);
+			padding: .75rem;
+			padding-left: 2rem;
+			padding-right: 2rem;
+			border-radius: .75rem;
+			font-size: 20px;
+			cursor: pointer;
+			transition: .25s ease;
+			margin: .5rem;
+		}
+
+		.button-href:hover {
+			-webkit-filter: brightness(120%);
+			filter: brightness(120%);
+			transform: scale(1.02);
+		}
+
+		.button-logo {
+			width: 2rem;
+			display: block;
+			float: right;
+		}
+
+		.theme-switch {
+			grid-area: theme-switch;
+			cursor: pointer;
+			width: 2rem;
+			justify-self: center;
+		}
+
+		.url {
+			text-decoration: none;
+			color: var(--foreground);
+			position: relative;
+		}
+
+		.inlineurl {
+			color: var(--secondary);
+			white-space: nowrap;
+		}
+
+		.url::before {
+			content: '';
+			;
+			position: absolute;
+			width: 100%;
+			height: 0.15rem;
+			background-color: var(--button);
+			bottom: 0;
+			left: 0;
+			transform-origin: right;
+			transform: scaleX(0);
+			transition: transform .3s ease-in-out;
+		}
+
+		.url:hover::before {
+			transform-origin: left;
+			transform: scaleX(1);
+		}
+	</style>
+	<script>
+		let root = document.documentElement;
+		let rootStyle = getComputedStyle(root)
+
+
+		function switchtheme() {
+			if (rootStyle.getPropertyValue("--theme") == "dark") {
+				root.style.setProperty("--theme", "light");
+				root.style.setProperty("--background-1", "#f7fff7");
+				root.style.setProperty("--background-2", "#fff");
+				root.style.setProperty("--foreground", "#1c1a1e");
+				root.style.setProperty("--button", "#e0a4c6");
+				root.style.setProperty("--secondary", "#EF476F");
+				for (var i of document.getElementsByClassName("svg")) {
+					i.setAttribute("fill", "#1c1a1e")
 				}
 			}
 
-			#inner{
-				padding: 2rem;
-			}
-
-			#socials{
-				display: none;
-				list-style-type: none;
-			}
-
-			.banner{
-				width: 100%;
-				height: 100%;
-				border-radius: .75rem
-			}
-
-			#home{
-				text-align: left;
-			}
-
-			#aboutme{
-				text-align: left;
-			}
-
-			#stuffimade{
-				text-align: left
-			}
-
-			#siteinfo{
-				line-height: 140%;
-			}
-
-			.itchbox{
-				background-color: var(--background-1);
-				display: block;
-				border-radius: 0.75rem;
-				padding: 0.5rem;
-				margin-top: 0.5rem;
-				margin-bottom: 0.5rem;
-			}
-
-			.itchbutton{
-				text-decoration: none;
-				text-align: center;
-				display: block;
-				color: var(--foreground);
-				background: var(--button);
-				padding: .75rem;
-				border-radius: .75rem;
-				cursor: pointer;
-				transition: .25s ease;
-				margin: 0;
-			}
-
-			.itchbutton:hover{
-				-webkit-filter: brightness(120%);
-				filter: brightness(120%);
-				transform: scale(1.02);
-			}
-
-			.itchimage{
-				height: 7rem;
-				width: auto;
-				border-radius: .75rem;
-				margin-right: 1rem;
-				float: left
-			}
-
-			hr{
-				border: .1rem solid var(--foreground);
-				background: var(--foreground)
-			}
-
-			.list-button{
-				display: inline-block;
-				width: 100%;
-			}
-
-			.button-href{
-				text-decoration: none;
-				display: block;
-				text-align: left;
-				color: var(--foreground);
-				background: var(--button);
-				padding: .75rem;
-				padding-left: 2rem;
-				padding-right: 2rem;
-				border-radius: .75rem;
-				font-size: 20px;
-				cursor: pointer;
-				transition: .25s ease;
-				margin: .5rem;
-			}
-
-			.button-href:hover{
-				-webkit-filter: brightness(120%);
-				filter: brightness(120%);
-				transform: scale(1.02);
-			}
-
-			.button-logo{
-				width: 2rem;
-				display: block;
-				float: right;
-			}
-
-			.themeswitch{
-				grid-area: themeswitch;
-				cursor: pointer;
-				width: 2rem;
-				justify-self: center;
-			}
-
-			.url {
-				text-decoration: none;
-				color: var(--foreground);
-				position: relative;
-			}
-
-			.inlineurl{
-				color: var(--secondary);
-				white-space: nowrap;
-			}
-
-			.url::before {
-				content: '';;
-				position: absolute;
-				width: 100%;
-				height: 0.15rem;
-				background-color: var(--button);
-				bottom: 0;
-				left: 0;
-				transform-origin: right;
-				transform: scaleX(0);
-				transition: transform .3s ease-in-out;
-			}
-
-			.url:hover::before {
-				transform-origin: left;
-				transform: scaleX(1);
-			}
-		</style>
-		<script>
-			let root = document.documentElement;
-			let rootStyle = getComputedStyle(root)
-
-
-			function switchtheme() {
-				if (rootStyle.getPropertyValue("--theme") == "dark") {
-					root.style.setProperty("--theme", "light");
-					root.style.setProperty("--background-1", "#f7fff7");
-					root.style.setProperty("--background-2", "#fff");
-					root.style.setProperty("--foreground", "#1c1a1e");
-					root.style.setProperty("--button", "#e0a4c6");
-					root.style.setProperty("--secondary", "#EF476F");
-					for (var i of document.getElementsByClassName("svg")) {
-						i.setAttribute("fill", "#1c1a1e")
-					}
-				}
-
-				else if (rootStyle.getPropertyValue("--theme") == "light") {
-					root.style.setProperty("--theme", "dark");
-					root.style.setProperty("--background-1", "#1c1a1e");
-					root.style.setProperty("--background-2", "#221f23");
-					root.style.setProperty("--foreground", "#f7fff7");
-					root.style.setProperty("--button", "#38B863");
-					root.style.setProperty("--secondary", "#EF476F");
-					for (var i of document.getElementsByClassName("svg")) {
-						i.setAttribute("fill", "#f7fff7")
-					}
-				}
-				
-				else {
-					root.style.setProperty("--theme", "dark");
-					root.style.setProperty("--background-1", "#1c1a1e");
-					root.style.setProperty("--background-2", "#221f23");
-					root.style.setProperty("--foreground", "#f7fff7");
-					root.style.setProperty("--button", "#38B863");
-					root.style.setProperty("--secondary", "#EF476F");
-					for (var i of document.getElementsByClassName("svg")) {
-						i.setAttribute("fill", "#f7fff7")
-					}
+			else if (rootStyle.getPropertyValue("--theme") == "light") {
+				root.style.setProperty("--theme", "dark");
+				root.style.setProperty("--background-1", "#1c1a1e");
+				root.style.setProperty("--background-2", "#221f23");
+				root.style.setProperty("--foreground", "#f7fff7");
+				root.style.setProperty("--button", "#38B863");
+				root.style.setProperty("--secondary", "#EF476F");
+				for (var i of document.getElementsByClassName("svg")) {
+					i.setAttribute("fill", "#f7fff7")
 				}
 			}
-		</script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
 
-			gtag('config', 'G-WHEZ8M2SCK');
-		</script>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
-	<body>
-		<div id="container">
-			<div id="leftspacer">
-				
-			</div>
-			<div id="main">
-				<div id="inner">
-					<div id="nameandimage">
-						<div id="wrapper">
-							<video class="banner" autoplay>
-								<source src="demo.webm" type="video/webm">
-								Your browser does not support the video tag.
-							</video>
-							<h1 id="username">Technopigs</h1>
-						</div>
-					</div>
-					<hr id="seperatortop">
-					<div id="technopigs">
-						<p>This is a quick resource pack that I whipped up to add the feature that naming a pig "Technoblade" gives it the crown from his skin.</p>
-						<p>The idea has been suggested a lot on Twitter and elsewhere but I've made this in case Mojang doesn't end up adding it.</p>
-						<p>Optifine is required or <a href="https://www.curseforge.com/minecraft/mc-mods/custom-entity-models-cem" target="_blank" rel="noopener noreferrer" class="url inlineurl"><em>Custom Entity Models</em></a> and <a href="https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric" target="_blank" rel="noopener noreferrer" class="url inlineurl"><em>Entity Texture Features</em></a> if you're using Fabric.</p>
-						<p>If you're using the Fabric Custom Entity Models mod, you have to make sure "Use assets/minecraft/optifine/cem" is disabled. If you haven't changed any settings you should be fine.</p>
-						<p>Thanks to u/Codepro5 for creating the bedrock version (no mods needed for beckrock)</p>
-						<p>Contact me at Fern#2528 on Discord or via <a href="https://www.reddit.com/r/Technoblade/comments/vptwye/i_made_a_resource_pack_to_pay_tribute_to_the/" class="url inlineurl">the reddit post</a></p>
-						<p>&nbsp;</p>
-						<p><em>Rest in peace king &lt;3</em></p>
-					</div>
-					
-					<hr id="seperatorbottom">
-					<div id="footer">
-						<p id="footertext">&copy; Copyright 2022 Fern</p>
+			else {
+				root.style.setProperty("--theme", "dark");
+				root.style.setProperty("--background-1", "#1c1a1e");
+				root.style.setProperty("--background-2", "#221f23");
+				root.style.setProperty("--foreground", "#f7fff7");
+				root.style.setProperty("--button", "#38B863");
+				root.style.setProperty("--secondary", "#EF476F");
+				for (var i of document.getElementsByClassName("svg")) {
+					i.setAttribute("fill", "#f7fff7")
+				}
+			}
+		}
+	</script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-WHEZ8M2SCK');
+	</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div id="container">
+		<div id="leftspacer">
+
+		</div>
+		<div id="main">
+			<div id="inner">
+				<div id="nameandimage">
+					<div id="wrapper">
+						<video class="banner" autoplay>
+							<source src="demo.webm" type="video/webm">
+							Your browser does not support the video tag.
+						</video>
+						<h1 id="username">Technopigs</h1>
 					</div>
 				</div>
-			</div>
-			<nav id="navbox">
-				<ul>
-					<h2>Downloads</h2>
-					<li><a href="files/technopigs 1.19.zip" class="url pagelink" download>Download for 1.19</a></li>
-					<li><a href="files/technopigs 1.8.9.zip" class="url pagelink" download>Download for 1.8.9</a></li>
-					<li><a href="files/technopigs bedrock.mcpack" class="url pagelink" download>Download for bedrock</a></li>
+				<hr id="seperatortop">
+				<div id="technopigs">
+					<p>This is a quick resource pack that I whipped up to add the feature that naming a pig
+						"Technoblade" gives it the crown from his skin.</p>
+					<p>The idea has been suggested a lot on Twitter and elsewhere but I've made this in case Mojang
+						doesn't end up adding it.</p>
+					<p>Optifine is required or <a
+							href="https://www.curseforge.com/minecraft/mc-mods/custom-entity-models-cem" target="_blank"
+							rel="noopener noreferrer" class="url inlineurl"><em>Custom Entity Models</em></a> and <a
+							href="https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric"
+							target="_blank" rel="noopener noreferrer" class="url inlineurl"><em>Entity Texture
+								Features</em></a> if you're using Fabric.</p>
+					<p>If you're using the Fabric Custom Entity Models mod, you have to make sure "Use
+						assets/minecraft/optifine/cem" is disabled. If you haven't changed any settings you should be
+						fine.</p>
+					<p>Thanks to u/Codepro5 for creating the bedrock version (no mods needed for beckrock)</p>
+					<p>Contact me at Fern#2528 on Discord or via <a
+							href="https://www.reddit.com/r/Technoblade/comments/vptwye/i_made_a_resource_pack_to_pay_tribute_to_the/"
+							class="url inlineurl">the reddit post</a></p>
 					<p>&nbsp;</p>
-					<li><a href="https://ffernn-dev.github.io" class="url pagelink">Made with 💜 by Fern</a></li>
-				</ul>
-			</nav>
-			<svg viewBox="0 0 100 100" class="themeswitch" onclick="switchtheme()">
-				<path class="svg" d="M0,50A50,50,0,1,0,50,0,50.0567,50.0567,0,0,0,0,50ZM50,8.8261V91.1739A41.1739,41.1739,0,0,1,50,8.8261Z" fill="#f7fff7"/>
-			</svg>
+					<p><em>Rest in peace king &lt;3</em></p>
+				</div>
+
+				<hr id="seperatorbottom">
+				<div id="footer">
+					<p id="footertext">&copy; Copyright 2022 Fern</p>
+				</div>
+			</div>
 		</div>
-	</body>
+		<nav id="navbox">
+			<ul>
+				<h2>Downloads</h2>
+				<li><a href="files/technopigs 1.19.zip" class="url pagelink" download>Download for 1.19</a></li>
+				<li><a href="files/technopigs 1.8.9.zip" class="url pagelink" download>Download for 1.8.9</a></li>
+				<li><a href="files/technopigs bedrock.mcpack" class="url pagelink" download>Download for bedrock</a>
+				</li>
+				<p>&nbsp;</p>
+				<li><a href="https://ffernn-dev.github.io" class="url pagelink">Made with 💜 by Fern</a></li>
+			</ul>
+		</nav>
+		<svg viewBox="0 0 100 100" class="theme-switch" onclick="switchtheme()">
+			<path class="svg"
+				d="M0,50A50,50,0,1,0,50,0,50.0567,50.0567,0,0,0,0,50ZM50,8.8261V91.1739A41.1739,41.1739,0,0,1,50,8.8261Z"
+				fill="var(--foreground)" />
+		</svg>
+	</div>
+</body>
+
 </html>
